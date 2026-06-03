@@ -1,16 +1,65 @@
-# React + Vite
+# Mini Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React + Vite weather application that fetches live weather data for a searched city using OpenWeatherMap.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Search weather by city name
+- Uses OpenWeatherMap Geo API to resolve city coordinates
+- Uses OpenWeatherMap Weather API to fetch current conditions
+- Displays temperature, humidity, pressure, and feels-like values
+- Only renders the weather card after a successful search
+- Handles invalid city names by showing an error message
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `src/Weatherapp.jsx` – main app container and state management
+- `src/Searchbox.jsx` – search input and API request logic
+- `src/Infobox.jsx` – weather display card
+- `src/Searchbox.css` – search box styling
+- `src/Infobox.css` – weather card styling
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Create a `.env` file in the project root with your OpenWeatherMap API key:
+
+```env
+VITE_API_KEY=your_openweathermap_api_key
+```
+
+3. Run the development server:
+
+```bash
+npm run dev
+```
+
+4. Open the local dev URL shown in the terminal.
+
+## Notes
+
+- The app requests metric units from OpenWeatherMap and includes a fallback to convert Kelvin values to Celsius if needed.
+- Keep `package-lock.json` committed for consistent dependency installs.
+
+## Available Scripts
+
+- `npm run dev` – start the Vite dev server
+- `npm run build` – build the app for production
+- `npm run preview` – preview the production build locally
+- `npm run lint` – run ESLint on the project files
+
+## Dependencies
+
+- React 19
+- Vite
+- Material UI
+- OpenWeatherMap API
+
+## License
+
+This project is provided as-is for learning and demonstration purposes.
